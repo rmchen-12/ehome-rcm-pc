@@ -2,9 +2,9 @@
 import React, { Component, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Select, Modal, message } from 'antd';
-import { inject } from 'react-ahax';
+import { inject } from '../react-ahax';
 import { isEqual } from 'lodash';
-import { callApi } from 'utils';
+import { callApi } from '../utils';
 import './index.less';
 
 const Option = Select.Option;

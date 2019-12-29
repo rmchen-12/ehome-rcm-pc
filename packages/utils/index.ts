@@ -418,7 +418,7 @@ import regexps from "./regexps";
 import reactLoadable from "./reactLoadable";
 import showExportModal from "./showExportModal";
 
-export {
+export default {
   showExportModal,
   gotoModule,
   addKey,
