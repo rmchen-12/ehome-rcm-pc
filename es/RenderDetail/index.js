@@ -1,7 +1,7 @@
-import React from 'react';
-import { getEnumObject } from '../utils';
-import fieldTypes from '../EnhanceTable/table/fieldTypes';
-import './index.less';
+import React from "react";
+import a, { getEnumObject } from "../utils";
+import fieldTypes from "../EnhanceTable/table/fieldTypes";
+import "./index.less";
 /**
  * 作用: 详情信息表单的渲染
  * @params: fields 渲染表单的属性对象
@@ -9,10 +9,11 @@ import './index.less';
  * @return：返回值是一个Dom树组
  */
 
-var countEnums = ['one-item', 'two-item', 'three-item', 'four-item'];
+var countEnums = ["one-item", "two-item", "three-item", "four-item"];
 
 function renderBaseFields(fields) {
   var detail = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  console.log(a.isIE());
   return fields.map(function (_ref, index) {
     var name = _ref.name,
         key = _ref.key,
@@ -21,7 +22,7 @@ function renderBaseFields(fields) {
         render = _ref.render,
         isShow = _ref.isShow,
         _ref$unit = _ref.unit,
-        unit = _ref$unit === void 0 ? '' : _ref$unit,
+        unit = _ref$unit === void 0 ? "" : _ref$unit,
         _ref$itemCount = _ref.itemCount,
         itemCount = _ref$itemCount === void 0 ? 2 : _ref$itemCount;
     var value = detail[key]; // 处理格式化数据
@@ -36,7 +37,7 @@ function renderBaseFields(fields) {
     } // 处理render 函数
 
 
-    if (render && typeof render === 'function') {
+    if (render && typeof render === "function") {
       value = render(detail);
     } // 如果存在是否显示的定义，并且判断为不显示，直接返回null
 
@@ -47,7 +48,7 @@ function renderBaseFields(fields) {
 
     var lineClass = countEnums[itemCount - 1]; // 处理没有值时，统一显示为--,
 
-    var _final = value === undefined || value === '' ? '--' : value;
+    var _final = value === undefined || value === "" ? "--" : value;
 
     return React.createElement("div", {
       className: "showInfo-item ".concat(lineClass),
@@ -56,7 +57,7 @@ function renderBaseFields(fields) {
       className: "showInfo-label"
     }, name), React.createElement("span", {
       className: "showInfo-value"
-    }, _final, _final === value ? unit : ''));
+    }, _final, _final === value ? unit : ""));
   });
 }
 
